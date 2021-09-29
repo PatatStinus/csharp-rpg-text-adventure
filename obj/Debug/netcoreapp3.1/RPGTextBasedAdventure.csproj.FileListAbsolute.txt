@@ -1,0 +1,13 @@
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\bin\Debug\netcoreapp3.1\RPGTextBasedAdventure.exe
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\bin\Debug\netcoreapp3.1\RPGTextBasedAdventure.deps.json
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\bin\Debug\netcoreapp3.1\RPGTextBasedAdventure.runtimeconfig.json
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\bin\Debug\netcoreapp3.1\RPGTextBasedAdventure.runtimeconfig.dev.json
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\bin\Debug\netcoreapp3.1\RPGTextBasedAdventure.dll
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\bin\Debug\netcoreapp3.1\RPGTextBasedAdventure.pdb
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.csprojAssemblyReference.cache
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.AssemblyInfoInputs.cache
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.AssemblyInfo.cs
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.csproj.CoreCompileInputs.cache
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.dll
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.pdb
+C:\Users\stijn\source\repos\csharp-rpg-text-adventure\obj\Debug\netcoreapp3.1\RPGTextBasedAdventure.genruntimeconfig.cache
