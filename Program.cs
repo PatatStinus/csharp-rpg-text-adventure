@@ -163,7 +163,7 @@ namespace RPGTextBasedAdventure
                 else if (String.Compare(userInput, "2help", true) == 0)
                     Console.WriteLine("The Golem is immune to magic powers, does really hard hitting melee attacks and has good defense but is very slow. \nCounters: Witch + Human");
                 else if (String.Compare(userInput, "3help", true) == 0)
-                    Console.WriteLine("The ManBird is the only race with flight, can dodge melee attacks and can reach the Cloud World that some other races can't. \nCounters: Golem + Swift");
+                    Console.WriteLine("The ManBird is the only race with flight, can dodge melee attacks. \nCounters: Golem + Swift");
                 else if (String.Compare(userInput, "4help", true) == 0)
                     Console.WriteLine("The Human is the basic race, medium stats on everything. \nCounters: Fire Spirit + ManBird");
                 else if (String.Compare(userInput, "5help", true) == 0)
