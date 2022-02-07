@@ -11,12 +11,25 @@ namespace RPGTextBasedAdventure
         private static List<string> fileNames = new List<string>();
         private static int chosenRace = 0;
         private static string userInput;
+        private static int usedSaveFile = 0;
+        private static bool characterSelected = false;
 
         static bool ConsoleEventCallback(int eventType)
         {
             if (eventType == 2)
             {
                 Console.WriteLine("Closing window. Please wait...");
+                if(characterSelected)
+                {
+                    StreamWriter newFile = File.CreateText("savefiles/" + fileNames[usedSaveFile]);
+                    newFile.WriteLine(Player.name);
+                    newFile.WriteLine(Player.level); //LVL
+                    newFile.WriteLine(Player.xp); //XP
+                    newFile.WriteLine(Player.race); //Race
+                    for (int i = 0; i < Player.attacks.Count; i++)
+                        newFile.WriteLine(Player.attacks[i]);
+                    newFile.Close();
+                }
                 Console.ReadLine();
             }
             return false;
@@ -33,7 +46,6 @@ namespace RPGTextBasedAdventure
             SetConsoleCtrlHandler(handler, true);
 
             Console.WriteLine("Welcome! Press Enter to start the game!");
-
 
             userInput = Console.ReadLine();
 
@@ -119,19 +131,70 @@ namespace RPGTextBasedAdventure
 
             if(Int16.TryParse(typedFile, out short j) && j <= fileNames.Count + 1 )
             {
-                if (j == fileNames.Count + 1) 
+                if (j == fileNames.Count + 1)
                 {
                     Console.WriteLine("Please enter a name for your save file!");
                     fileNames.Add(Console.ReadLine() + ".txt");
                     StreamWriter newFile = File.CreateText("savefiles/" + fileNames[j - 1]);
+                    usedSaveFile = j - 1;
                     Console.WriteLine("Enter your character name");
-                    newFile.WriteLine(Console.ReadLine());
+                    Player.name = Console.ReadLine();
+                    newFile.WriteLine(Player.name);
                     newFile.WriteLine("1"); //LVL
                     newFile.WriteLine("0"); //XP
                     Console.WriteLine("Please Choose 1 of the 6 races you want your character to be:");
                     ChooseRace();
                     newFile.WriteLine(chosenRace); //Race
+                    newFile.WriteLine("1"); //Base Attack
+                    Player.level = 1;
+                    Player.xp = 0;
+                    Player.attacks.Add(1);
+                    Player.race = chosenRace;
                     newFile.Close();
+                    Console.WriteLine("Save File Created!");
+                    characterSelected = true;
+                    Console.WriteLine("\nYou will now be send to The Tower...");
+                    Thread.Sleep(5000);
+                    TheTower tower = new TheTower();
+                    tower.Start();
+                }
+                else
+                {
+                    StreamReader saveFiles;
+                    saveFiles = File.OpenText("savefiles/" + fileNames[j - 1]);
+                    usedSaveFile = j - 1;
+                    string line = saveFiles.ReadLine();
+                    int numbLine = 0;
+                    while (line != null)
+                    {
+                        switch (numbLine)
+                        {
+                            case 0:
+                                Player.name = line;
+                                break;
+                            case 1:
+                                Player.level = Int32.Parse(line);
+                                break;
+                            case 2:
+                                Player.xp = Int32.Parse(line);
+                                break;
+                            case 3:
+                                Player.race = Int16.Parse(line);
+                                break;
+                            default:
+                                Player.attacks.Add(Int16.Parse(line));
+                                break;
+                        }
+                        line = saveFiles.ReadLine();
+                        numbLine++;
+                    }
+                    saveFiles.Close();
+                    Console.WriteLine("Save file selected!");
+                    characterSelected = true;
+                    Console.WriteLine("\nYou will now be send to The Tower...");
+                    Thread.Sleep(5000);
+                    TheTower tower = new TheTower();
+                    tower.Start();
                 }
             }
             else
